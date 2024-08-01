@@ -12,16 +12,27 @@ const Index = () => {
                 <Image alt='Brain Image Logo' height={40} width={40} src={'/logo.png'} />
                 <p className='md:text-xl text-sm  font-bold font-sans tracking-tight'>Book <span className='bg-black p-1 rounded  text-white'>Hub</span></p>
             </Link>
-            <div className='p-1 flex gap-3  text-sm text-black     rounded'>
-                {session.status == 'unauthenticated' ? <Link className=' hover:rotate-1 bg-black h-7 flex items-center justify-center text-white px-10 w-full ' href={'/login'}>Register / Login</Link>
-                    : <button onClick={() => signOut()} className='hover:rotate-1 bg-black h-7 flex items-center justify-center text-white px-10 w-full '>Sign Out</button>
+            {/* <div className='p-1 flex gap-3 border justify-around  items-center   text-sm text-black    rounded'>
+                {session.status == 'unauthenticated' ? <Link className=' hover:rotate-1 bg-black h-7 flex items-center justify-center text-white px-10  ' href={'/login'}>Register / Login</Link>
+                    : <button onClick={() => signOut()} className='hover:rotate-1 bg-black h-7 flex items-center justify-center text-white px-10  '>Sign Out</button>
                 }
                 {
                     session.status == 'authenticated'
                     &&
-                    <Link href={'/update'} className=' bg-black border w-44 flex items-center justify-center text-white'>My Books</Link>
+                    <Link href={'/update'} className=' hover:rotate-1 bg-black h-7  items-center justify-center md:text-sm text-[12px] text-white px-10'>My Books</Link>
                 }
 
+            </div> */}
+            <div className='flex gap-2 md:gap-4'>
+                {session.status=="authenticated" && <div className='min-h-7 md:px-10
+                text-[12px] flex justify-center items-center  px-2   py-1 
+                 bg-black text-white rounded md:py-2' onClick={()=>signOut()}>SignOut</div>}
+                {session.status=="unauthenticated" && <Link href={'/login'} className='min-h-7 md:px-10
+                text-[12px] flex justify-center items-center  px-2   py-1 
+                 bg-black text-white rounded md:py-2'>Register / Login</Link>}
+                {session.status=="authenticated" && <div className='min-h-7 md:px-10
+                text-[12px] flex justify-center items-center  px-2   py-1 
+                 bg-black text-white rounded md:py-2'>My Books</div>} 
             </div>
 
         </div>

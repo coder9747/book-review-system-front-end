@@ -78,7 +78,7 @@ const PageComponent = () => {
     }, [id]);
     useEffect(() => {
         getReveiw(false);
-    });
+    },[]);
     function handleClick() {
         if (hasMore)
             setPage((page) => page + 1);
@@ -90,7 +90,7 @@ const PageComponent = () => {
         bookData &&
         <Suspense fallback={<div>Loading...</div>}>
             <div>
-                <div className='grid md:py-20 md:px-40 gap-2 grid-cols-12  md:grid-cols-10  min-h-[500px]'>
+                <div className='grid px-5 md:py-20 md:px-40 gap-2 grid-cols-12  md:grid-cols-10  min-h-[500px]'>
                     <div className=" col-span-4 md:col-span-2  ">
                         <img className='md:h-72 md:w-48 h-60 w-32' src={bookData?.coverImageUrl || ""} alt='book image' />
                     </div>
@@ -103,9 +103,9 @@ const PageComponent = () => {
                             return <p key={idx} className='bg-orange-600 h-5 md:h-10 flex items-center justify-center text-white p-0.5 md:p-1 text-sm'>{item}</p>
                         })}</div>
                     </div>
-                    <div className="col-span-10">
-                        <textarea onChange={(e) => setUserData(e.target.value)} value={userData} id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your Review here..."></textarea>
-                        <button className='h-10 flex items-center gap-2 w-max px-10 py-2 my-2 rounded-xl bg-black text-white' onClick={handleAddReview}>
+                    <div className="col-span-12 ">
+                        <textarea onChange={(e) => setUserData(e.target.value)} value={userData} id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700  dark:placeholder-gray-400 " placeholder="Write your Review here..."></textarea>
+                        <button className='md:h-10 h-7  px-1 py-2 text-[13px] md:text-sm  flex items-center gap-2 w-max md:px-10 md:py-2 my-2 rounded-xl bg-black text-white' onClick={handleAddReview}>
                             {reviewLoading && <Loader2 className='h-5 w-5 animate-spin' />}
                             Add Review</button>
                     </div>

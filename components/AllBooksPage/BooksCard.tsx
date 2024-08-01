@@ -81,7 +81,7 @@ const TiltCard = ({ author, coverImageUrl, rating, title, description }: BooksCa
                 transform,
             }
             }
-            className="relative h-96 w-72 rounded-xl bg-gradient-to-br "
+            className="relative  h-96 w-72 rounded-xl bg-gradient-to-br "
         >
             <div
                 style={
@@ -92,11 +92,11 @@ const TiltCard = ({ author, coverImageUrl, rating, title, description }: BooksCa
                 }
                 className="absolute inset-4 grid place-content-center rounded-xl bg-white shadow-lg"
             >
-                <img className="h-[200px] object-contain  w-[150px]" src={coverImageUrl} alt="" />
-                <p className="text-[17px] text-center font-bold mt-2">{title}</p>
-                <p className="text-sm font-normal text-center my-1">Author: {author}</p>
+                <img className="h-[200px] mx-auto object-contain  w-[150px]" src={coverImageUrl} alt="" />
+                <p className="text-[17px] text-center font-bold mt-2">{title?.substring(0, 20)}...</p>
+                <p className="text-sm font-normal text-center my-1">Author: {author?.substring(0, 20)}...</p>
                 <p className="text-sm font-normal text-center my-1">Rating : {rating}</p>
-              
+
                 <p className="text-sm text-center px-2"> {description?.substring(0, 20)}...</p>
             </div>
 
