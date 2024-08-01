@@ -142,6 +142,10 @@ const Page = () => {
             setError("description is required");
             return
         }
+        if (!genres) {
+            setError("Generes is required");
+            return
+        }
         const formData = new FormData();
         formData.append("file", file);
         formData.append("title", bookInfo.title);
@@ -239,7 +243,7 @@ const Page = () => {
             </div>
             <div className=" my-3 w-full mx-auto">
                 <label htmlFor="cover-photo" className="text-base font-semibold leading-7 text-gray-900">
-                    Gener (Optional)
+                    Gener <span className='text-red-500'>*</span>
                 </label>
                 <div className="relative">
                     <input
