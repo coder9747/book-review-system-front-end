@@ -26,7 +26,7 @@ const ShuffleHero = () => {
                     <Link href={'/addbook'} className="bg-black text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
                         Add Book
                     </Link>
-                    <a onClick={()=>window.scrollBy({ top: 600, behavior: 'smooth' })} className="bg-black text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
+                    <a onClick={()=>window.scrollBy({ top: 1000, behavior: 'smooth' })} className="bg-black text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
                         See All Books
                     </a>
                 </div>
@@ -122,7 +122,7 @@ const squareData = [
 ];
 
 const GenerateSquares = () => {
-    return shuffle(squareData).map((sq) => (
+    return shuffle(squareData).map((sq:any) => (
         <motion.div
             key={sq.id}
             layout

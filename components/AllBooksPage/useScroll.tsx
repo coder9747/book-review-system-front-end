@@ -11,17 +11,13 @@ const useScroll = (page: number) => {
         axiosInstance.get(`/api/v1/books/getallbooks?page=${page}`)
             .then((res) => {
                 if (res.data.succes) {
-                    console.log(res.data.payload);
                     setData((pre) => {
                         return [...pre, ...res.data.payload.allBooks];
                     });
                     setHasMore((res.data.payload.hasMore));
                 }
-            }).catch(console.error)
-            .finally
-        {
-            setLoading(false);
-        }
+                setLoading(false);
+            }).catch(console.error);
     }, [page]);
 
     return (

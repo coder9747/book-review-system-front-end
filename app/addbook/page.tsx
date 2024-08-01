@@ -167,14 +167,10 @@ const Page = () => {
                 setGenreInput("");
                 alert("Book Added Succesful");
                 router.push("/update")
-
-                return;
             }
+            setLoading(false);
         } catch (error) {
             console.error("error");
-        }
-        finally {
-            setLoading(false);
         }
     }
     return (
@@ -294,7 +290,7 @@ const Page = () => {
             </div>
             <button className='h-10 items-center w-max flex gap-2  px-2 py-1 bg-black text-white'>
                 {loading && <Loader2 className='h-5 w-5 animate-spin' />}
-                Submit Form</button>
+                Add Book</button>
         </form>
     )
 }

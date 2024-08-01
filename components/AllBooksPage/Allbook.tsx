@@ -24,7 +24,7 @@ const Allbook = () => {
     return (
         <Fragment>
             <p className='text-center my-2  font-medium text-3xl font-sans' id='books'>All Books </p>
-            <div className=' px-10  grid  place-items-center gap-2  md:grid-cols-2 lg:grid-cols-3'>
+            <div className=' md:px-10 px-2  grid  border place-items-center md:gap-2  grid-cols-2 lg:grid-cols-3'>
                 {data?.map((item, idx) => {
                     if (idx === data.length - 1) {
                         return <BooksCard key={idx} myRef={lastElement} {...item} />

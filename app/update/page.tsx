@@ -23,11 +23,9 @@ const Page = () => {
           if (res.data.succes) {
             setUserBooks(res.data.payload);
           }
+          setLoading(false);
         }).catch(console.error)
-        .finally
-      {
-        setLoading(false);
-      }
+
     }
   }, [session])
   if (loading) {
@@ -35,10 +33,10 @@ const Page = () => {
   };
   return (
     <div className='md:px-40 min-h-[500px] px-10 grid sm:grid-cols-2 md:grid-cols-3 '>
-      {userBooks && userBooks.map((item,idx) => {
+      {userBooks && userBooks.map((item, idx) => {
         return <Card key={idx} {...item} />
       })}
-      {userBooks && userBooks.length==0 && <p>No Books Found</p>}
+      {userBooks && userBooks.length == 0 && <p>No Books Found</p>}
     </div>
   )
 }
@@ -52,7 +50,7 @@ const Card = ({ author, description, coverImageUrl, _id }: { author: string, des
     <p className='font-bold '>Author: {author.substr(0, 20)}...</p>
     <p>Description: {description}</p>
     <div className="buttons flex justify-start items-center   gap-2 my-2 ">
-      <Link  className='h-7 rounded w-max p-1  text-sm text-white bg-green-500' href={`/update/${_id}`}>Update</Link>
+      <Link className='h-7 rounded w-max p-1  text-sm text-white bg-green-500' href={`/update/${_id}`}>Update</Link>
       <div onClick={() => setIsOpen(true)} className='h-7 rounded w-max p-1 text-sm text-white bg-red-500' >Delete</div>
 
     </div>
